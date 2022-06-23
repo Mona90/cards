@@ -25,7 +25,7 @@ function SingleCard(props) {
     return (
     <>
     {data? data.map((item, i)=>(  
-          <div className='col-12 col-sm-6 col-md-4 my-3 ' key={item.id}>
+          <div className='col-12 col-sm-6 col-md-4 my-3 ' key={i}>
             <Card className="card">
                 <ul className="card-body list-unstyled">
                       <li>First Name :<span className='ms-2'>{item.firstName}</span></li>

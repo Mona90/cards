@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function SavedCards(props) {
-  
+
    const [savedData, setSavedData] = useState([])
     const handleDelete = (id, text)=>{
       props.remove_card(id)
@@ -16,7 +16,8 @@ function SavedCards(props) {
 
       useEffect(()=>{
         setSavedData(props.card)
-      },[props.card])
+        console.log('testttttttt')
+      })
 
   return (
     <div className='container py-5'>

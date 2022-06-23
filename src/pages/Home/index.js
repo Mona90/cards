@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { dataContext } from '../../App'
 import SingleCard from '../../Component/SingleCard'
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const Home = (props) => {
@@ -19,7 +20,7 @@ const Home = (props) => {
           const arr = []
           resData.map((el,i)=>{
             const test = {
-              id : i,
+              id : uuidv4(),
               firstName : el.name.first,
               secondName: el.name.last,
               gender: el.gender,

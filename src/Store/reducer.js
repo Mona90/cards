@@ -8,33 +8,19 @@ const card = (state =[], action) => {
 
     state = read_cookie('card');
     if (action.type === ADD_CARD){
-        console.log('testttt', state, action.payload)
-        if(state.length === 0){
-            card = [...state, { ...action.payload }]
-            bake_cookie('card', card)
+        const checkIfCardsExist = state.find(el=>el.id === action.payload.id)
+        if(checkIfCardsExist){
+            alert('card is already added to cart')
             return card
+        } 
+        card = [...state, { ...action.payload }]
+        bake_cookie('card', card)
+         console.log('from reducer', card)
 
-        }else{
-            for (const element of state) {
-                console.log('test el', element)
-                if(element.id === action.payload.id){
-                    alert('card is already added to cart')
-                }
-                else{
-                    card = [...state, { ...action.payload }]
-                    bake_cookie('card', card)
-                     console.log('from reducer', card)
-    
-    
-                
-                }
-                return card
-
-            }
-        }    
-        
+          return card
 
     }else if(action.type === REMOVE_CARD){
+
         card = state.filter(selected => selected.id !== action.payload.id)
         bake_cookie('card', card)
         return card
