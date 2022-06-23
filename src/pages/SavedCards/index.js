@@ -2,9 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {add_card, remove_card} from '../../Store/action'
 import { Card } from '../../styles/globalStyles'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SavedCards(props) {
+   console.log("get reduxData", props.card)
+  const handleDelete = (id, text)=>{
+     props.remove_card(id)
+    toast(text,{ autoClose: 1000 });
+}
+
   return (
     <div className='container py-5'>
         <h1>Saved Cards</h1>
@@ -21,6 +29,8 @@ function SavedCards(props) {
                       <li>Age :<span className='ms-2'>{item.age}</span></li>
                       <li>Email :<span className='ms-2'>{item.email}</span></li>
                     </ul>
+                    <button type="button" className="btn btn-danger" onClick={()=>handleDelete(i, "Deleted Successfuly!")}>Delete</button>
+
                 </Card>
             </div>
             )))
@@ -29,6 +39,7 @@ function SavedCards(props) {
             <h2>No data to show</h2>
             }
         </div>
+        <ToastContainer/>
     </div>
   )
 }

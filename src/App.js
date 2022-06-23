@@ -1,8 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import Cart from './pages/cart/Cart';
+import { Route, Routes } from 'react-router-dom';
 import Cards from './pages/SavedCards';
 import { createContext, useState } from 'react';
 export const dataContext = createContext([]);
