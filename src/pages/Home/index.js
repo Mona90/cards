@@ -8,7 +8,6 @@ import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
 
 
 const Home = (props) => {
-  console.log('test redux', props)
   const {data, setData} = useContext(dataContext)
    const userNumber = 10
    
@@ -17,7 +16,6 @@ const Home = (props) => {
       .then(res=>{
         const resData = res.data.results
         setData(resData)
-        console.log('data hooks', res.data.results)
           const arr = []
           resData.map((el,i)=>{
             const test = {

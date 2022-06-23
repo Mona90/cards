@@ -4,7 +4,7 @@ import {read_cookie, bake_cookie} from 'sfcookies'
 
 const card = (state =[], action) => {
     let card = state
-    bake_cookie('card', [])
+    // bake_cookie('card', [])
 
     state = read_cookie('card');
     if (action.type === ADD_CARD){
@@ -16,6 +16,7 @@ const card = (state =[], action) => {
 
         }else{
             for (const element of state) {
+                console.log('test el', element)
                 if(element.id === action.payload.id){
                     alert('card is already added to cart')
                 }

@@ -14,7 +14,10 @@ export const add_card = (id,firstName,lastName,gender, age,email) =>{
 export const remove_card = (id) =>{
     const action ={
         type: REMOVE_CARD,
-        id
+        payload:{
+            id
+        }
+        
     }
     console.log('remove', action)
    return action

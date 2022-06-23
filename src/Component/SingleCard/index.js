@@ -13,20 +13,19 @@ function SingleCard(props) {
 
     const handleDelete = (id, text)=>{
         const newCards = data.filter(selected => selected.id !== id)
-        console.log('get removed data', newCards)
         setData(newCards)
         toast(text,{ autoClose: 1000 });
     }
 
-    const  handleClick = (i, item, text)=>{
-      props.add_card(i, item.firstName,item.lastName,item.gender,item.age,item.email)
+    const  handleClick = ( item, text)=>{
+      props.add_card(item.id, item.firstName,item.lastName,item.gender,item.age,item.email)
        toast(text,{ autoClose: 1000 });
     }
 
     return (
     <>
     {data? data.map((item, i)=>(  
-          <div className='col-12 col-sm-6 col-md-4 my-3 ' key={i}>
+          <div className='col-12 col-sm-6 col-md-4 my-3 ' key={item.id}>
             <Card className="card">
                 <ul className="card-body list-unstyled">
                       <li>First Name :<span className='ms-2'>{item.firstName}</span></li>
@@ -36,8 +35,8 @@ function SingleCard(props) {
                       <li>Email :<span className='ms-2'>{item.email}</span></li>
                 </ul>
                 <div className='d-flex mb-3 px-3'>
-                 <button type="button" className="btn btn-dark me-3" onClick={()=> handleClick(i,item,'Added Sucessfuly!')} >Save</button>
-                  <button type="button" className="btn btn-danger" onClick={()=>handleDelete(i, "Deleted Successfuly!")}>Delete</button>
+                 <button type="button" className="btn btn-dark me-3" onClick={()=> handleClick(item,'Added Sucessfuly!')} >Save</button>
+                  <button type="button" className="btn btn-danger" onClick={()=>handleDelete(item.id, "Deleted Successfuly!")}>Delete</button>
 
                 </div>
             </Card>
