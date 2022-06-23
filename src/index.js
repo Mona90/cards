@@ -4,11 +4,11 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import product from './Store/reducer';
+import card from './Store/reducer';
 
 
 
-const store = createStore(product)
+const store = createStore(card)
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

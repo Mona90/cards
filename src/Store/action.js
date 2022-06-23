@@ -1,23 +1,20 @@
-import {ADD_TO_CART, REMOVE_FROM_CART} from './type'
+import {ADD_CARD, REMOVE_CARD} from './type'
 
-export const add_to_cart = (id,title,price,img) =>{
+export const add_card = (id,firstName,lastName,gender, age,email) =>{
     const action ={
-        type: ADD_TO_CART,
+        type: ADD_CARD,
         payload: {
-            id,
-            title,
-            price,
-            img
+            id,firstName,lastName,gender, age,email
         }
     }
     console.log('add', action)
    return action
 }
 
-export const remove_from_cart = (data) =>{
+export const remove_card = (id) =>{
     const action ={
-        type: REMOVE_FROM_CART,
-        data
+        type: REMOVE_CARD,
+        id
     }
     console.log('remove', action)
    return action
